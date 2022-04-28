@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let arr1 = [1,3,5,7,9]
+    let arr2 = [2,4,6,8,10]
+    console.log(...arr1);//展开一个数组
+    let arr3 = [...arr1,...arr2]//链接数组
+    console.log(arr3);
+
+    //在函数中使用
+    function sum(...numbers){
+      console.log(numbers);
+      return numbers.reduce((pre,cur)=>{
+        return pre+cur
+      })
+      // return a+b
+    }
+    console.log(sum(1,2,3,4));
+
+    //构造字面量对象时使用展开语法
+    let person = {name:'tom',age:18}
+    let person1 = person//引用地址的传递
+    let person2 = {...person} //深度还是不能复制 还是
+    // console.log(...person);//Found non-callable @@iterator  展开运算符不能展开对象
+    person.name = 'jerry'
+    console.log(person1.name);
+    console.log(person2.name);
+  
+    //合并 =>有则修改无则添加
+    let person3 = {...person,name:'jack',address:'earth'}
+    console.log(person3);
+
+  </script>
+</body>
+</html>
